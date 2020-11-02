@@ -35,9 +35,9 @@ a:active, a:focus {
  color: red;
 }
 div{
-  margin: 10em;
+  margin: 10;
 }
 img{
-  width:310;
-  height:234;
+  width:310px;
+  height:235px;
 }
