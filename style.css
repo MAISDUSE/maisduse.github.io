@@ -36,6 +36,7 @@ a:active, a:focus {
 }
 div{
   margin: 40px;
+  text-align: center;
 }
 img{
   width:310px;
