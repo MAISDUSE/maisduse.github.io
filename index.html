@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mon Site GitHub Pages</title>
-  <link href="style.css" rel="stylesheet" media="all" type="text/css">
-</head>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <head>
+    <meta charset="utf-8">
 
-<nav class="nav">
-    <ol>
-        <li class="nav_li"><a href="tp1.html">TP1</a></li>
-        <li class="nav_li"><a href="tp2.html">TP2</a></li>
-        <li class="nav_li"><a href="#wizzard">How to be a wizzard</a></li>
-        <li class="nav_li"><a href="#">Images</a></li>
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-        <li class="nav_li"><a href="#footer">Footer</a></li>
-    </ol>
-</nav>
+  </head>
 
+  <body>
+    <header>
+      <h1>En-tête</h1>
+    </header>
 
+    <nav>
+      <ul>
+        <li><a href="./index.html">Accueil</a></li>
+        <li><a href="./page1.html">Qui-suis-je</a></li>
+        <li><a href="./tmp/index.html">tmp</a></li>
 
-<div>
-<h2 id="tp1">TP1</h2>
-<a href="tp1.html">Ceci est le tp 1</a>
-</div>
+      </ul>
 
-<div>
-<h2 id="tp2">TP1</h2>
-<a href="tp2.html">Ceci est le tp 1</a>
-</div>
+     </nav>
 
-<div>
-  <p>-------------------------------------------------</p>
-</div>
+     <main>
+      <article>
+        <h2>Mes travaux en Technologies Web</h2>
+        <p>Le but de cette séance de Travaux Pratiques est de composer un site web qui vous permettra de naviguer à travers vos réalisations.</p>
 
-<div>
-<h2 id="wizzard">How to be a wizard</h2>
-    <ol>
-        <li>Grow a long, majestic beard.</li>
-        <li>Wear a tall, pointed hat.</li>
-        <li>Have I mentioned the beard?</li>
-    </ol>
-    <ul>
-        <li>Or just make some good dreams</li>
-    </ul>
-</div>
+        <h3>Ce qu'il faut faire</h3>
+        <p>Modifiez la page courante pour en faire la page d'accueil de votre site. Cette page permettra l'accès à des catégories de travaux : HTML / JS / PHP / Vue. Chaque catégorie aura sa page d'accueil, sur le même format. Ces pages d'acceuil pointeront vers des pages réalisées en cours. Par exemple, la catégorie HTML contiendra une page affichant une image et une autre contenant un élément vidéo.  Attention, vous réfléchirez à l'arborescence de votre répertoire pour assurer l'uniformité de la présentation.
+        </p>
 
-<div>
-<h2 id="pictures">Pictures</h2>
-<img src="src/wizzard.jpg"alt="A wizzard ?">
-</div>
+        <h3>Bonus</h3>
+        <ul>
+          <li>Modifiez la CSS à votre goût.</li>
+          <li>Créez une page "qui suis-je" avec votre CV</li>
+          <li>Quel type de copyright devriez vous mettre?</li>
+        </ul>
+      </article>
 
-<footer id="footer" >Mathieu Dusé - ENSSAT - Techno WEB</footer>
-</body>
+      <aside>
+        <h2>En relation</h2>
+        <ul>
+          <li><a href="html/AcceuilHTML.html"></a>HTML</li>
+          <li><a href="JS/AcceuilJS.html"></a>JS</li>
+          <li><a href="PHP/AcceuilPHP.html"></a>PH</li>
+          <li><a href="Vue/AcceuilVue.html"></a>Vue</li>
+        </ul>
+      </aside>
+
+    </main>
+
+    <footer>
+      <p>©Copyright ... </p>
+    </footer>
+
+  </body>
 </html>
