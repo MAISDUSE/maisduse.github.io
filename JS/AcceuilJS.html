@@ -1,151 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <!--
   <head>
+    <meta charset="utf-8">
 
-    <script type="text/javascript">
-      faireUneAlerte();
-      function faireUneAlerte()
-      {
-        alert("bonjour le monde");
-      }
-      windows.onload=faireUneAlerte();
-    </script>
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
 
-  <script type="text/javascript">
-    var a = 1;
-    var b = "x";
-    c = 3;
-    function fonction1()
-    {
-      var a =2;
-      b = 3;
-      c= 1;
-      alert("fonction1 : a vaut "+a+", b vaut "+b+" et c vaut "+c);
-    }
-    function fonction2(d)
-    {
-      alert("fonction2 :a vaut "+a+", b vaut "+b+", c vaut "+c+" et d vaut "+d);
-    }
-    fonction1();
-    fonction2(a);
-
-
-  </script>
   </head>
--<body onload="faireUneAlerte()">
-<body>
 
-    <h1>Hello world!</h1>
-  <p onload="faireUneAlerte()">test</p>
+  <body>
+    <h1>AcceuilJS</h1>
+
+    <ul>
+      <li><a href="TP1.html">TP1</a></li>
+      <li><a href="TP2.html">TP2</a></li>
+    </ul>
+
+  
+
+
+
+
+
   </body>
-
-
-
-
--->
-
-
-
-
-<!--Ex 3-->
-<!--
-<head>
-
-<script type="text/javascript">
-function init()
-{
-laDiv1=document.createElement('div');
-laDiv1.setAttribute('id','div1');
--->
-<!--ajout dun text dans div-->
-<!--
-p = document.createElement("p");
-p = "ceci est p";
-laDiv1.append(p);
-
-laDiv2=document.getElementById('div2');
-laDiv2.appendChild(laDiv1);
-}
-</script>
-</head>
-<body onload='init()'>
-<div id='div2'></div>
-</body>
-
--->
-
-
-<!--Ex 4
-<head>
-  <script language="Javascript" src="./geometrie/point.js"> </script>
-  <script>
-  function init()
-  {
-    canvas = document.getElementById('myCanvas');
-    for(i=1;i<10;i++)
-    {
-      for(j=1;j<10;j++)
-      {
-        point1 = new point(20*i,20*j,myCanvas);
-        point1.affiche();
-      }
-    }
-  }
-  </script>
-</head>
-<body onload='init()'>
-  <canvas id="myCanvas" width="200" height="200"/>
-</body>
-
-
-
--->
-
-
-<head>
-<style type="text/css">
-#navlist{position:relative;}
-#navlist li{margin:0;padding:0;list−style:none;position:absolute;top:0;}
-#navlist li, #navlist a{height:60px;display:block;}
-#play{left:0px;width:47px;}
-#play{background:url('audio−player−icons−rizwanashrafcom.jpg') −10px −110px;
-border:black 1px;} </style>
-<SCRIPT LANGUAGE="Javascript" SRC="./geometrie/point.js"> </SCRIPT>
-<script>
-var i=1;
-var j=1;
-var aCanvas;
-function init()
-{
-aCanvas = document.getElementById('myCanvas');
-}
-function updateCanvas()
-{
-if(j<10)
-{
-if(i>9){
-i=1;
-j++;
-}
-point1 = new point(20*i,20*j,aCanvas);
-point1.affiche();
-i++;
-}
-}
-</script>
-</head>
-<body onload='init()'>
-<canvas id="myCanvas" width="200" height="200"></canvas>
-<ul id="navlist">
-<li id="play" onclick="updateCanvas()"/>
-</ul>
-</body>
-
-
-
-
-
-
-
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Accueil</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+
+</head>
+
+
+
+<body>
+  <h1>TP2</h1>
+
+
+  <div class="menu">
+    <ul>
+      <li id="play">Play</li>
+      <li id="reset">Reset</li>
+    </ul>
+  </div>
+  <aside class="timer">
+    <span id="timer">0</span>
+  </aside>
+
+
+
+  <script type="text/javascript">
+
+    let time = 10;
+    var timer;
+
+    function startTimer()
+    {
+        resetTimer();
+
+
+        timer = setInterval(() => {
+
+            time -= 1;
+
+            if (time <= 0) clearInterval(timer);
+
+            document.getElementById("timer").innerHTML= String(time);
+
+
+
+        }, 1000);
+
+
+
+    }
+
+    function resetTimer()
+    {
+        time = 10;
+        document.getElementById("timer").innerHTML = String(time);
+        clearInterval(timer);
+    }
+
+
+    document.getElementById('play').addEventListener('click',startTimer);
+    document.getElementById('reset').addEventListener('click',resetTimer);
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+
+
+</html>
