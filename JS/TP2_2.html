@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TP2_2</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+  </head>
+  <body>
+
+    <h1>TP2_2</h1>
+    <canvas id="canvas" width="300" height="300" ></canvas>
+    <br>
+    <button type="button" name="button" onclick="reset()">Clear</button>
+    <button type="button" name="button" onclick="draw()">Draw</button>
+
+    <script type="text/javascript">
+        var canvas = document.querySelector('canvas');
+    		var context = canvas.getContext('2d');
+    		context.fillStyle = "rgba(255,0,0,0.5)" ;
+
+
+        var timer;
+        var x = 0;
+        var y = 0;
+        var l = 20
+        var h = 20;
+
+
+
+        function draw()
+        {
+            reset();
+            timer = setInterval(() => {
+              x +=10;
+              y +=10;
+              context.fillRect(x,y,l,h);
+            }, 100);
+        }
+
+
+        function reset()
+        {
+            x=0;
+            y=0;
+            clearInterval(timer);
+            context.clearRect(0, 0, 300, 300);
+        }
+
+
+    window.addEventListener('load', (event) => draw());
+
+
+    </script>
+
+  </body>
+</html>
