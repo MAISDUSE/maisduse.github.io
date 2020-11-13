@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TP2_2</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+  </head>
+  <body>
+
+    <h1>TP2_2</h1>
+    <canvas id="canvas" width="300" height="300" ></canvas>
+    <br>
+
+
+
+    <script type="text/javascript">
+
+        let Square = function (width, height, context, x, y){
+                    this.x = x;
+                    this.y = y;
+                    this.width = width;
+                    this.height = height;
+                    this.ctx = context;
+
+                    this.draw = function ()
+                    {
+                        context.fillStyle = "red";
+                        context.fillRect(this.x, this.y, this.width, this.height);
+                    };
+
+                    this.clear = function ()
+                    {
+                        context.clearRect(this.x, this.y, this.width, this.height);
+                    };
+
+                    this.draw();
+                }
+
+        let canvas = document.querySelector('canvas');
+        let context = canvas.getContext('2d');
+
+        function drawInit()
+        {
+            context.strokeStyle = "white";
+            context.strokeRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function moving (square)
+        {
+            let moving = setInterval(() => {
+
+                square.clear();
+
+                square.x += 10;
+
+                square.draw();
+
+                if (square.x + square.width >= canvas.width - 10) clearInterval(moving);
+
+            }, 100);
+        }
+
+
+
+
+    window.addEventListener('load', (event) => {
+                drawInit();
+
+                for(let i = 0; i < 10; i++)
+               {
+                   let square = new Square(20, 20, context, 5 , 5 + i * 30, 1000 * i);
+                   setTimeout(() => moving(square), 4000+i*1000);
+
+               }
+
+
+
+
+
+            });
+
+    </script>
+
+  </body>
+</html>
