@@ -11,8 +11,9 @@
     <canvas id="canvas" width="300" height="300" ></canvas>
     <br>
     <div class="buttons">
-      <button type="button" name="button" onclick="reset()">Clear</button>
       <button type="button" name="button" onclick="draw()">Draw</button>
+      <button type="button" name="button" onclick="reset()">Clear</button>
+
     </div>
 
 
@@ -35,7 +36,8 @@
             reset();
             timer = setInterval(() => {
               x +=10;
-              y +=10;
+              /*y +=10;*/
+              context.clearRect(0, 0, 300, 300);
               context.fillRect(x,y,l,h);
             }, 100);
         }
