@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <title>TP3 JS Avancé</title>
+    <title>TP3 JS Avancé 2</title>
   </head>
   <body>
     <nav>
@@ -37,22 +37,32 @@
     // You can reference the image element
     //context.scale(-1,1);
     context.drawImage(img, img.x, img.y, img.width / 2, img.height / 2)
-
+    moveToRight();
 }
 
-    var timer;
-    let pixels =0;
-    // Move the element 10px on the right every 16ms
-    timer = setInterval(function() {
 
 
-      context.clearRect(0,0,1000,1000);
+function moveToRight(pauseTime = 0)
+    {
+        let timer;
+        let pixels =0;
+        let lastFrame = new Date();
 
-      context.drawImage(img, img.x +pixels, img.y, img.width / 2, img.height / 2);
-      pixels +=16;
-      if (pixels>=canvas.width - (img.width/2) ) clearInterval(timer);
-      pausecomp(1000);
-	}, 16);
+        timer = setInterval(() => {
+
+            context.clearRect(0,0,1000,1000);
+
+            context.drawImage(img, img.x +pixels, img.y, img.width / 2, img.height / 2);
+            pixels +=16;
+            if (pixels>=canvas.width - (img.width/2) ) clearInterval(timer);
+
+            lastFrame = new Date();
+
+            pausecomp(pauseTime);
+        }, 16);
+    }
+
+
 
     function pausecomp(millis)
 		{
