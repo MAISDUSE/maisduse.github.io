@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>TP3 JS Avancé 2</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Acceuil</a></li>
+      </ul>
+    </nav>
+
+    <h1>TP JS Avancé</h1>
+
+    <canvas id="canvas" ></canvas>
+
+
+  </body>
+
+  <script>
+    let width = document.body.clientWidth;
+    let height = document.body.clientHeight;
+  //  let ratio = window.devicePixelRatio;
+
+    let x = width/2;
+        r = 10;
+        step = 0;
+        vx = r*0.3;
+
+    let miroirY = 0; //for reverse walk
+
+    let sprites = new Image();
+    sprites.src = "src/hero_walk_cycle_spritesheet_by_mrnoobtastic-d3defej.png"
+
+    let canvas = document.querySelector('canvas');
+    let context = canvas.getContext('2d');
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    context.imageSmothingEnabled = false;
+
+
+
+
+    var mainloop = function() {
+        updateGame();
+        drawGame();
+    };
+
+    var animFrame = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            window.oRequestAnimationFrame      ||
+            window.msRequestAnimationFrame     ||
+            null ;
+
+    var recursiveAnim = function() {
+        mainloop();
+        animFrame( recursiveAnim );
+    };
+
+    // start the mainloop
+    animFrame( recursiveAnim );
+
+    function updateGame(){
+      x-=vx;
+
+      if (x>width-x || x<r){
+        vx*=-1;
+        //scale sprite x-1;
+        if (miroirY==128){
+          miroirY=0;
+        }else{
+          miroirY=128;
+        }
+      }
+
+      step +=0.2;
+      if (step >= 4){
+        step -= 4;
+      }
+    }
+
+    function drawGame(){
+      context.clearRect(0,0,width,height);
+      drawPNJ(x, height, r, Math.floor(step));
+
+    }
+
+    function drawPNJ(x, y, r, step){
+      let s = r/12
+      context.drawImage(sprites,128*step, miroirY, 128, 128, x-64*s, y-128*s, 128*s, 128*s );
+
+    }
+
+
+  </script>
+
+
+
+</html>

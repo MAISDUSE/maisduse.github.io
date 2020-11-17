@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>TP3 JS Avancé 2</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Acceuil</a></li>
+      </ul>
+    </nav>
+
+    <h1>TP JS Avancé</h1>
+
+    <canvas id="canvas" width="1000" height="1000" ></canvas>
+
+
+
+    <br>
+    <img id="myImage" src="./src/car.webp" alt="Car" width="835px" height="356px" style="transform: scaleX(-1); display:none;">
+
+  </body>
+
+  <script>
+
+    let canvas = document.querySelector('canvas');
+    let context = canvas.getContext('2d');
+    let img = document.getElementById("myImage");
+
+
+
+
+    window.onload = function (){
+    // The page is completely loaded now
+    // You can reference the image element
+    //context.scale(-1,1);
+    context.drawImage(img, img.x, img.y, img.width / 2, img.height / 2)
+    //moveToRight();
+    requestAnimationFrame(step);
+}
+
+
+/*
+function moveToRight(pauseTime = 0)
+    {
+        let timer;
+        let pixels =0;
+        let lastFrame = new Date();
+
+        timer = setInterval(() => {
+
+            context.clearRect(0,0,1000,1000);
+
+            context.drawImage(img, img.x +Math.min(progress/10, 200), img.y, img.width / 2, img.height / 2);
+            pixels +=16;
+            if (pixels>=canvas.width - (img.width/2) ) clearInterval(timer);
+
+            lastFrame = new Date();
+
+            pausecomp(pauseTime);
+        }, 16);
+    }
+*/
+
+    var start = null;
+
+
+    function step(timestamp) {
+      var progress;
+      if (start === null) start = timestamp;
+      progress = timestamp - start;
+      context.clearRect(0,0,1000,1000);
+      context.drawImage(img, img.x +Math.min(progress/10, (canvas.width - (img.width/2)) ), img.y, img.width / 2, img.height / 2);
+
+      if (progress < 10000) {
+        requestAnimationFrame(step);
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+    function pausecomp(millis)
+		{
+			var date = new Date();
+			var curDate = null;
+			do {
+				curDate = new Date();
+			} while(curDate-date < millis);
+		}
+
+
+
+  </script>
+
+
+
+</html>
