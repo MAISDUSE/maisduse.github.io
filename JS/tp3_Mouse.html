@@ -33,6 +33,12 @@
 
     let direction = 0; //for reverse walk 0gauche, 180 droite, 360 bas, 540 haut
 
+    //mouse var
+    let xCible = width/2;
+    let yCible = height/2;
+    let directionPerso ="ArrowLeft"
+
+
     let sprites = new Image();
     sprites.src = "src/hero_walk_cycle_spritesheet_by_mrnoobtastic-d3defej.png"
 
@@ -70,6 +76,28 @@
     function updateGame(){
 
 
+
+      if(x>xCible){
+        x-=1;
+        directionPerso = "ArrowLeft";
+
+      }else if(x<xCible){
+        x+=1;
+        directionPerso = "ArrowRight";
+      }
+
+      if(y>yCible){
+        y-=1;
+        directionPerso = "ArrowUp";
+      }
+      else if(y<yCible){
+        y+=1;
+        directionPerso = "ArrowDown";
+
+      }
+
+
+      //marcher sur place
       step +=0.2;
       if (step >= 4){
         step -= 4;
@@ -90,48 +118,52 @@
 
     }
 
-////////////////keydown
-window.addEventListener("keydown", function (event) {
-  if (event.defaultPrevented) {
-    return; // Should do nothing if the key event was already consumed.
-  }
+////////////////mouse point and click
 
-  switch (event.key) {
+
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect();
+    xCible = event.clientX - rect.left;
+    yCible = event.clientY - rect.top;
+    //console.log("x: " + xCible + " y: " + yCible);
+    SwitchDirection(directionPerso);
+
+
+
+
+}
+
+
+function SwitchDirection(directionPerso){
+  switch (directionPerso) {
     case "ArrowDown":
       direction = 256;
-      if(y<height){
-        y+=vy;
-      }
-      // Do something for "Down arrow" key press.
       break;
     case "ArrowUp":
       direction = 384;
-      if(y>128){
-        y-=vy;
-      }
-      // Do something for "Up arrow" key press.
       break;
     case "ArrowLeft":
       direction = 0;
-      if (x>r){
-        x-=vx;
-        }
-      // Do something for "left arrow" key press.
       break;
     case "ArrowRight":
       direction = 128;
-      if(x<width-r){
-        x+=vx;
-      }
-      // Do something for "Right arrow" key press.
       break;
     default:
       return; // Quit when this doesn't handle the key event.
   }
+}
 
-  // Consume the event for suppressing "double action".
-  event.preventDefault();
-}, true);
+canvas.addEventListener('mousedown', function(e) {
+    getCursorPosition(canvas, e);
+})
+
+
+
+
+
+
+
+
   </script>
 
 
