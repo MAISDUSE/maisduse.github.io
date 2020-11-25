@@ -76,46 +76,45 @@
     function updateGame(){
 
 
-
-      if(x>xCible){
+      if(Math.floor(x)>Math.floor(xCible)){
         x-=1;
         directionPerso = "ArrowLeft";
+        SwitchDirection(directionPerso);
 
-      }else if(x<xCible){
+
+      }else if(Math.floor(x)<Math.floor(xCible)){
         x+=1;
         directionPerso = "ArrowRight";
+        SwitchDirection(directionPerso);
+        //console.log(Math.floor(x)  + " / " + Math.floor(xCible));
       }
 
-      if(y>yCible){
+
+      if(Math.floor(y)>Math.floor(yCible)){
         y-=1;
-        directionPerso = "ArrowUp";
+        //directionPerso = "ArrowUp";
       }
-      else if(y<yCible){
+      else if(Math.floor(y)<Math.floor(yCible)){
         y+=1;
-        directionPerso = "ArrowDown";
-
+        //directionPerso = "ArrowDown";
       }
-
 
       //marcher sur place
       step +=0.2;
       if (step >= 4){
         step -= 4;
       }
-
     }
 
     function drawGame(){
       context.clearRect(0,0,width,height);
       drawPNJ(x, y, r, Math.floor(step));
-
     }
 
     function drawPNJ(x, y, r, step){
       let s = r/12
       context.drawImage(sprites,128*step, direction, 128, 128, x-64*s, y-128*s, 128*s, 128*s );
     //  context.drawImage(sprites,128*step, direction, 128, 128, 0, 0, 128*s, 128*s );
-
     }
 
 ////////////////mouse point and click
