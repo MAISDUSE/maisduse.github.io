@@ -1,11 +1,12 @@
 const cacheName = 'tpJsSw';
 
 let cors_url = 'https://cors-anywhere.herokuapp.com/';
-let url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu'
+let url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3a.shu';
 
 
 let cacheResources = [
-    '/JS/','/JS/tpServiceWorkers.html',
+    '/JS/',
+    '/JS/tpServiceWorkers.html',
     cors_url + url
 ];
 
