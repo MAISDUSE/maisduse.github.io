@@ -5,7 +5,7 @@ let url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3
 
 
 let cacheResources = [
-    '/JS/','/JS/tpServiceWorkers.html'
+    '/JS/','/JS/tpServiceWorkers.html',
     cors_url + url
 ];
 
@@ -17,7 +17,7 @@ this.addEventListener('install', (event) => {
     );
 });
 
-self.addEventListener("fetch", (event) => {
+this.addEventListener("fetch", (event) => {
     console.log('fetched');
     event.respondWith(
         caches.match(event.request).then((response) => {
