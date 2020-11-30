@@ -15,7 +15,7 @@
     <h1>TP Service Workers</h1>
 
     <div class="col cal">
-                <p id="calendar">              
+                <p id="calendar">
                 </p>
     </div>
 
@@ -33,8 +33,8 @@
               fetch( cors_url + url ).then(function(response){
                   return response.text();
               }).then(function(text){
-                console.log("It Works!");
-                 document.querySelector('#calendar').innerHTML = text;
+                //console.log("It Works!");
+                document.querySelector('#calendar').innerHTML = text;
                 //console.log(text);
               });
     });
