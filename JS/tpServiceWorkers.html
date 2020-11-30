@@ -42,7 +42,7 @@
 
            function registerSW() {
              if ('serviceWorker' in navigator) {
-               navigator.serviceWorker.register('/JS/serviceWorker.js', { scope: '/JS/' }).then((reg) => {
+               navigator.serviceWorker.register('/JS/serviceworker.js', { scope: '/JS/' }).then((reg) => {
                    // registration worked
                    console.log('Registration succeeded. Scope is ' + reg.scope);
                }).catch((error) => {
