@@ -32,7 +32,10 @@
               }).then(function(text){
 
                 console.log(text);
-                /*var jCalData = ICAL.parse(text);
+                let data = ICAL.parse(text);
+                console.log("Objet : ");
+                console.log(data)
+                /*
                 let result = []
                 let events = jCalData[1][2];
                 events.forEach(e => result.push(flattenEvent(e)));
