@@ -14,7 +14,10 @@
 
     <h1>TP Service Workers</h1>
 
-
+    <div class="col cal">
+                <p id="calendar">              
+                </p>
+    </div>
 
   </body>
 
@@ -31,37 +34,26 @@
                   return response.text();
               }).then(function(text){
                 console.log("It Works!");
+                 document.querySelector('#calendar').innerHTML = text;
                 //console.log(text);
               });
     });
 
 
+           function registerSW() {
+             if ('serviceWorker' in navigator) {
+               navigator.serviceWorker.register('/JS/serviceWorker.js', { scope: '/JS/' }).then((reg) => {
+                   // registration worked
+                   console.log('Registration succeeded. Scope is ' + reg.scope);
+               }).catch((error) => {
+                   // registration failed
+                   console.log('Registration failed with ' + error);
+               });
+           }
 
-        	// Register the Service Worker
-          /*
-        	async function registerSW() {
-          		if ('serviceWorker' in navigator) {
-            		try {
-              			await navigator.serviceWorker.register('serviceworker.js');
-            		}
-            		catch (e) {
-              			console.log('SW registration failed');
-                    console.log(e);
-            		}
-          		}
-        	}*/
 
-          async function registerSW() {
-            if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register('serviceworker.js').then(function(reg) {
-                // registration worked
-                console.log('Registration succeeded. Scope is ' + reg.scope);
-              }).catch(function(error) {
-                // registration failed
-                console.log('Registration failed with ' + error);
-              });
-            };
-          }
+
+    }
 
 
 
