@@ -5,7 +5,7 @@ let url = 'https://planning.univ-rennes1.fr/jsp/custom/modules/plannings/9EYlGR3
 
 
 let cacheResources = [
-    '/JS/',
+    '/JS/','/JS/tpServiceWorkers.html'
     cors_url + url
 ];
 
