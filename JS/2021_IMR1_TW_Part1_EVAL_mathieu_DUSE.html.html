@@ -54,7 +54,7 @@ async function main() {
   		//URL du service web qui donne les coordonnées GPS d'une adresse
   		//EVAL : COMMENT S'APPELLE LA NOTATION ${} ?
       //Cela se nomme un template literals.
-    	let url = `http://nominatim.openstreetmap.org/search.php?street=${adresses[personne].street}&city=${adresses[personne].city}&country=${adresses[personne].country}&postalcode=${adresses[personne].postalcode}&polygone_geojson=1&format=jsonv2`;
+    	let url = `https://nominatim.openstreetmap.org/search.php?street=${adresses[personne].street}&city=${adresses[personne].city}&country=${adresses[personne].country}&postalcode=${adresses[personne].postalcode}&polygone_geojson=1&format=jsonv2`;
 
     	//EVAL : EN CONSULTANT L'API FETCH, INDIQUEZ LE PARAMÈTRE À PASSER AU CONSTRUCTEUR
     	let myRequest = new Request(url);
