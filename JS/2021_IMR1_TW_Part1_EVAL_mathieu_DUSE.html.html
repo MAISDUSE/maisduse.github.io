@@ -68,7 +68,7 @@ async function main() {
                //EVAL : RÉCUPÉREZ LA LATITUDE ET LONGITUDE DANS L'OBJET adresses[personne]
                console.log(data);
 
-               if (data!=undefined){
+               if (data[0]!=undefined){
                  adresses[personne].lat = data[0].lat;
                  adresses[personne].lon = data[0].lon;
 
